@@ -1,9 +1,9 @@
 import pyvisa
 import matplotlib.pyplot as plt
 import time
+from datetime import datetime
 
-
-n = 10
+n = 20
 rm = pyvisa.ResourceManager()
 instrument = rm.open_resource('GPIB1::11::INSTR')
 instrument.timeout = 5000
@@ -24,8 +24,7 @@ ax.ticklabel_format(useOffset=False)
 plt.xlabel('sample number')
 plt.ylabel('voltage')
 plt.title("3455A DC voltage measurement")
-plt.savefig("3455A_Graph.png")
+plt.savefig("3455A_Graph"+ time.strftime("%Y-%m-%d %H%M%S")+".png")
 plt.show()
 
     
-
